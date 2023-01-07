@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $title = '';
+    $content = '';
+    return view('welcome', compact('title', 'content'));
 });
+
+Route::post('/generate', [\App\Http\Controllers\ArticleGenerator::class, 'index']);
